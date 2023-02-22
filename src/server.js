@@ -67,8 +67,15 @@ app.put("/songs", async (request, response) => {
   response.send(successResponse);
 });
 
-app.delete("/songs", (request, response) => {
-  response.send("hello from songs delete");
+app.delete("/songs", async (request, response) => {
+  const deletedSong = await Song.deleteOne({ songName: request.body.songName });
+
+  const successResponse = {
+    message: "success",
+    deletedSong: deletedSong,
+  };
+
+  response.send(successResponse);
 });
 
 app.listen(port, () => console.log(`Serveris listening on port ${port}`));
