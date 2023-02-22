@@ -40,6 +40,14 @@ app.get("/songs", async (request, response) => {
   response.send(successResponse);
 });
 
+// example request body for put with dynamic updateObj
+
+// {
+//   "songName": "lucy in the sky with diamonds",
+//   "updateValue": 1000,
+//   "updateKey": "trackLength"
+// }
+
 app.put("/songs", async (request, response) => {
   // const filterObj = { songName: request.body.songName };
   // const updateObj = { artist: request.body.newArtist };
